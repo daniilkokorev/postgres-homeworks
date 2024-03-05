@@ -20,8 +20,8 @@ CREATE TABLE customers
 CREATE TABLE orders
 (
 	order_id int PRIMARY KEY,
-	customer_id varchar(20) UNIQUE REFERENCES customers(customer_id),
-	employee_id int UNIQUE REFERENCES employees(employee_id),
+	customer_id varchar(20) REFERENCES customers(customer_id),
+	employee_id int REFERENCES employees(employee_id),
 	order_date date,
 	ship_city text
 );
