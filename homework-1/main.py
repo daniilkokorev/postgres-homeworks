@@ -28,8 +28,9 @@ try:
             with open(ORDERS, encoding='utf-8') as orders_file:
                 info_orders = csv.DictReader(orders_file)
                 for order in info_orders:
-                    curs.execute("INSERT INTO orders (order_id, order_date, ship_city) VALUES (%s, %s, %s)",
+                    curs.execute("INSERT INTO orders VALUES (%s, %s, %s, %s, %s)",
                                  (order['order_id'],
+                                  order['customer_id'], order['employee_id'],
                                   order['order_date'], order['ship_city']))
 
 finally:
